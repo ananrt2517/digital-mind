@@ -1,5 +1,5 @@
 import './navigation.scss';
-
+import { Link } from 'react-router-dom';
 interface Props {
   
 }
@@ -8,8 +8,8 @@ const Navigation = (props: Props) => {
   return (
     <div>
       <ul>
-        <li><a href="/explore">EXPLORE</a></li>
-        <li><a href="/nft">NFT</a></li>
+        <li><Link to="/explore">EXPLORE</Link></li>
+        <li><Link to="/nft">NFT</Link></li>
       </ul>
     </div>
   )

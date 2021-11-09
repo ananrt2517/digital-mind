@@ -1,21 +1,24 @@
 import './style.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTodoRequest } from './store/actions/actions';
-import { useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import Explore from './pages/Explore';
+import Nft from './pages/Nft';
+import Navigation from './components/Navigation';
 
 function App() {
 
-  const dispatch = useDispatch();
-  const state = useSelector(state => state)
-  console.log('state', state)
-
-  useEffect(() => {
-    dispatch(fetchTodoRequest())
-  }, [dispatch]);
-
   return (
     <div className="App">
-      ana
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/nft" element={<Nft />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
