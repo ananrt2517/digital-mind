@@ -1,46 +1,35 @@
+import { IData } from '../../pages/Explore/Explore';
+import { INFT } from '../../pages/NFT/Nft';
 import {
-  FETCH_TODO_SUCCESS,
-  FETCH_TODO_FAILURE,
+  FETCH_NFTS_SUCCESS,
   SINGLE_NFT_SUCCESS,
   SET_SCROLL_POSITION,
 } from '../actions/actionTypes';
-
-export interface IFiles { 
-  uri: string,
-}
-export interface IProperties { 
-  files: IFiles[],
-}
-
-export interface IData { 
-  Description: string,
-  Mint: string,
-  Properties: IProperties,
-  Title: string,
-  id: string,
-}
 export interface IState {
   data: IData[],
-  nft: any[],
+  nft: INFT,
   scrollPosition: number,
 }
 
 const initialState: IState = {
   data: [],
-  nft: [],
+  nft: {
+    Properties: {
+      attributes: [],
+      files: [],
+    },
+    Title: "",
+    Description: ""
+  },
   scrollPosition: 0,
 };
 
 export const reducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case FETCH_TODO_SUCCESS:
+    case FETCH_NFTS_SUCCESS:
       return {
         ...state,
         ...action.payload,
-      };
-    case FETCH_TODO_FAILURE:
-      return {
-        ...state,
       };
     case SINGLE_NFT_SUCCESS:
       return {

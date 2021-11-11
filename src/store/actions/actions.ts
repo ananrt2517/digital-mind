@@ -1,46 +1,40 @@
+import { IData } from '../../pages/Explore/Explore';
+import { INFT } from '../../pages/NFT/Nft';
 import {
-  FETCH_TODO_REQUEST,
-  FETCH_TODO_FAILURE,
-  FETCH_TODO_SUCCESS,
+  FETCH_NFTS_REQUEST,
+  FETCH_NFTS_SUCCESS,
   SEARCH_ACTION,
   SINGLE_NFT_REQUEST,
   SINGLE_NFT_SUCCESS,
   SET_SCROLL_POSITION,
-} from "./actionTypes";
+} from './actionTypes';
 
-export const fetchTodoRequest = (payload:any) => ({
-  type: FETCH_TODO_REQUEST,
+export const fetchNftsRequest = (payload:number) => ({
+  type: FETCH_NFTS_REQUEST,
   payload
 });
 
-export const fetchTodoSuccess = (
-  payload: any
+export const fetchNftsSuccess = (
+  payload: IData[]
 ) => ({
-  type: FETCH_TODO_SUCCESS,
-  payload,
-});
-
-export const fetchTodoFailure = (
-  payload: any
-) => ({
-  type: FETCH_TODO_FAILURE,
+  type: FETCH_NFTS_SUCCESS,
   payload,
 });
 
 export const searchAction = (
-  term: any
+  term: string
 ) => ({
   type: SEARCH_ACTION,
   term
 });
 
-export const singleNftRequest = (mint:any) => ({
+export const singleNftRequest = (mint:string) => ({
   type: SINGLE_NFT_REQUEST,
   mint
 });
 
 export const singleNftSuccess = (
-  payload: any
+  payload: INFT
 ) => ({
   type: SINGLE_NFT_SUCCESS,
   payload,
