@@ -1,11 +1,10 @@
-import './style.scss';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
-import Explore from './pages/Explore';
-import Nft from './pages/Nft';
+import Explore from './pages/Explore/Explore';
+import Nft from './pages/NFT/Nft';
 import Navigation from './components/Navigation';
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/explore" element={<Explore />} />
-          <Route path="/nft" element={<Nft />} />
+          <Route path="/nft/:mint" element={<Nft />} />
         </Routes>
       </Router>
     </div>

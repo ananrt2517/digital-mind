@@ -1,0 +1,28 @@
+.navigation {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 2px 9px #04d3;
+  height: 50px;
+  
+  .logo {
+    padding: 10px;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      list-style-type: none;
+      
+      a {
+        text-decoration: none;
+        margin-right: 10px;
+        font-weight: 500;
+        font-size: 18px;
+        color: #000
+      }
+    }
+  }
+}
