@@ -5,7 +5,9 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <div className="logo">
-        <img src="https://solsea-test.ha.rs/assets/SolSea_Logo.svg" alt="logo"/>
+        <Link to="/">
+          <img src="https://solsea-test.ha.rs/assets/SolSea_Logo.svg" alt="logo"/>
+        </Link>
       </div>
       <ul>
         <li><Link to="/explore">Explore</Link></li>
