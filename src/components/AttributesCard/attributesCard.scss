@@ -1,0 +1,23 @@
+.attributesCard {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 9px 1px rgba(204,202,204,1);
+
+  .title {
+    padding: 10px;
+    background-color: #DED3FF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .attributes {
+    padding: 10px;
+    background-color: #F4F7FC;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+

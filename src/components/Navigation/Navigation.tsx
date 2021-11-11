@@ -1,10 +1,7 @@
 import './navigation.scss';
 import { Link } from 'react-router-dom';
-interface Props {
-  
-}
 
-const Navigation = (props: Props) => {
+const Navigation = () => {
   return (
     <div className="navigation">
       <div className="logo">

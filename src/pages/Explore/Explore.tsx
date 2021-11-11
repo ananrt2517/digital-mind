@@ -1,18 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTodoRequest, searchAction } from '../../store/actions/actions';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { fetchTodoRequest, searchAction, setScrollPosition } from '../../store/actions/actions';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Card from '../../components/Card/Card';
 import './explore.scss';
 import { NFT_LIMIT } from '../../constants';
 import { Link } from 'react-router-dom';
-interface Props {
-  
-}
+import { IData, IFiles } from '../../store/reducers/reducer';
 
-const Explore = (props: Props) => {
+const Explore = () => {
   const dispatch = useDispatch();
   const { data } = useSelector((state: any) => state);
   const [page, setPage] = useState(0);
+
+  const scrollPosition = useSelector((state: any) => state.scrollPosition)
+
+  const cardRef = useRef<HTMLDivElement>(null)
 
   const skip = useMemo(() => NFT_LIMIT * page, [page]);
 
@@ -36,18 +38,24 @@ const Explore = (props: Props) => {
     dispatch(fetchTodoRequest(skip))
   }, [dispatch, page, skip]);
 
+  useEffect(() => {
+    const cardReference = cardRef?.current;
+      if(cardReference) cardReference.scrollTop = scrollPosition
+  }, [scrollPosition]);
+  
   return (
     <div className="explore">
       <span>Explore NFT</span>
       <input type="text" placeholder="Search by NFT name" onChange={handleChange}/>
-      <div className="card-wrap" onScroll={handleScroll}>
+      <div className="card-wrap" ref={cardRef} onScroll={handleScroll}>
         {data.map((item: any) => { 
           return (
-            <a href={`nft/${item.Mint}`}>
+            <Link to={`/nft/${item.Mint}`} onClick={() => dispatch(setScrollPosition(cardRef?.current?.scrollTop))}>
               <Card title={item.Title}
-                img={item?.Properties?.files.map((item: any) => item.uri)} id={item?.id}
+                img={item?.Properties?.files.map((item: IFiles) => item.uri)}
+                id={item?.id}
                 description={item.Description === '' ? 'Theres no description' : item?.Description} />
-            </a>
+            </Link>
           )
         })}
         </div>

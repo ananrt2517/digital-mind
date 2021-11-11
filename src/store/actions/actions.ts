@@ -5,6 +5,7 @@ import {
   SEARCH_ACTION,
   SINGLE_NFT_REQUEST,
   SINGLE_NFT_SUCCESS,
+  SET_SCROLL_POSITION,
 } from "./actionTypes";
 
 export const fetchTodoRequest = (payload:any) => ({
@@ -42,5 +43,12 @@ export const singleNftSuccess = (
   payload: any
 ) => ({
   type: SINGLE_NFT_SUCCESS,
+  payload,
+});
+
+export const setScrollPosition = (
+  payload: any
+) => ({
+  type: SET_SCROLL_POSITION,
   payload,
 });

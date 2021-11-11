@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import Explore from './pages/Explore/Explore';
 import Nft from './pages/NFT/Nft';
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 
 function App() {
 
