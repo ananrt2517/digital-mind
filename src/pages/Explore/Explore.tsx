@@ -45,10 +45,13 @@ const Explore = () => {
     [dispatch],
   );
 
-  const handleScroll = (e: any) => {
-    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-    if (bottom) setPage(page + 1);
-  }
+  const handleScroll = useCallback(
+    (e: any) => {
+      const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+      if (bottom) setPage(page + 1);
+    },
+    [page],
+  )
 
   useEffect(() => {
     dispatch(fetchNftsRequest(skip))
